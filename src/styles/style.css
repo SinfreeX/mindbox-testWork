@@ -1,0 +1,102 @@
+body{
+    background: #f7f7f7;
+}
+
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 60px;
+    font-weight: 100;
+    color: #5b5b5b;
+}
+
+.card{
+    width: 340px;
+    background: white;
+    box-shadow: 1px 1px 10px 0 #ededed;
+}
+
+.inputCreateTodo{
+    width: 332px;
+    height: 30px;
+    border: none;
+    text-align: center;
+}
+
+.todoItem {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.todoItem.completed {
+    text-decoration: line-through;
+    color: #a3a3a3;
+}
+
+.todoItem:not(:last-child) {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.addTodo, .todolist, .todoFooter {
+    border-bottom: 2px solid #e7e7e7;
+}
+
+.addTodo input {
+    height: 45px;
+    font-size: 16px;
+}
+
+.addTodo input:focus-visible{
+    border: none;
+    outline: none;
+}
+
+.todoFooter, .filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter a {
+    padding: 0 3px;
+    margin: 1px;
+}
+
+.filter a:not(.selected):hover{
+    border: 1px solid #efefef;
+    margin: 0;
+}
+
+.filter .selected {
+    border: 1px solid #d5d5d5;
+    margin: 0;
+    color: #565656;
+}
+
+
+.todoFooter a {
+    text-decoration: none;
+    color: #a3a3a3;
+}
+
+.todoFooter {
+    font-size: 12px;
+    font-weight: 100;
+    padding: 0 9px;
+    color: #a3a3a3;
+}
+
+.error {
+    font-size: 10px;
+    color: red;
+    margin: 0;
+    text-align: right;
+    margin-right: 10px;
+}

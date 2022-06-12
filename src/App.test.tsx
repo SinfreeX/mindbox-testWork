@@ -1,9 +1,34 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('TEST APP', () => {
+  test('mock todo rendered', () => {
+    render(<App />)
+    const todo = screen.getByText(/покрытие тестами/i)
+    expect(todo).toBeInTheDocument()
+  });
+
+  test('add todo and handle duplicate', () => {
+    render(<App />)
+    const testLorem = 'qwerty'
+    const input = screen.getByPlaceholderText('What needs to be done?')
+    expect(input).toBeInTheDocument()
+
+    const todo = screen.queryByText(testLorem)
+    expect(todo).toBeNull()
+
+    const injectLorem = () => {
+      fireEvent.change(input, {target: {value: testLorem}})
+      fireEvent.submit(screen.getByTestId('createTodoForm'))
+    }
+
+    injectLorem()
+    expect(screen.getByText(testLorem)).toBeInTheDocument()
+
+    injectLorem()
+    expect(screen.getByText(/уже есть в списке/i)).toBeInTheDocument()
+  })
+})
+
+
