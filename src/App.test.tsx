@@ -9,6 +9,7 @@ describe('TEST APP', () => {
     expect(todo).toBeInTheDocument()
   });
 
+  //Тесты никогда не писал, и по сути не умею, но за пару часов изучил документацию, вроде не сложно)) понимаю что тут просто и тестировать то нечего
   test('add todo and handle duplicate', () => {
     render(<App />)
     const testLorem = 'qwerty'
